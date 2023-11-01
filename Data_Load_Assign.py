@@ -2,6 +2,7 @@ import random
 import torch
 import torchvision
 import torchvision.transforms as transforms
+import matplotlib.pyplot as plt
 
 def load_MNIST():
     # Load MNIST and return train and test.
@@ -53,3 +54,19 @@ def non_iid_Assign(dataset, batch_size = 10, n_clients = 100, n_per_client = 2):
 
 def num_params(model):
     return sum(p.numel() for p in model.parameters())
+
+def pltAcc(Acc, threshold, title):
+    rounds = range(1, len(Acc) + 1)
+    plt.plot(rounds, Acc, marker='.', linestyle='-', color='blue')
+    plt.axhline(y=threshold, color='red', linestyle='--')
+    plt.xlabel('Round')
+    plt.ylabel('Acc')
+    plt.title(title)
+    
+    last_round = len(rounds)
+    last_acc = Acc[-1]
+    annotation_text = f"round = {last_round}, acc = {last_acc}"
+    plt.annotate(annotation_text, xy=(last_round, last_acc), xytext=(last_round, last_acc + 0.02),
+             arrowprops=dict(facecolor='black', arrowstyle='->'))
+
+    plt.show()
