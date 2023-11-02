@@ -29,8 +29,8 @@ listed as below.
 
 - w9(10/30 - 11/05):
     - improve the current Fed-Avg:
-      - Implement Visualization module.(Trending Figures, Heatmaps) (11/2 Finished.)
-      - Debug the CNN model in Fed-Avg.
+      - Implement Visualization module.(Trending Figures, Heatmaps) **(11/1 Finished)**
+      - Debug the CNN model in Fed-Avg. **(11/2 Finished)**
       - Implement the baseline (C = 0) and FedSGD (C = 1, B = inf) groups of test to get the comparison with current groups.
     - Read two papers about uncertainty estimation.
 
