@@ -27,15 +27,15 @@ listed as below.
   - Secondly we implemented the Fed-Avg algorithm in H. Brendan McMahan's paper and tried to reproduce the published results on the MNIST dataset.
   - Tested different C value(0.1, 0.2, 0.5) in both iid and non-iid in both 2NN and CNN model.
 
-- w9(10/30 - 11/05):
+- w9(10/30 - 11/05): **(4/4 Finished)**
     - improve the current Fed-Avg:
       - Implement Visualization module.(Trending Figures, Heatmaps) **(11/1 Finished)**
       - Debug the CNN model in Fed-Avg. **(11/2 Finished)**
-      - Implement the baseline (C = 0) and FedSGD (C = 1, B = inf) groups of test to get the comparison with current groups.
-    - Read two papers about uncertainty estimation.
+      - Implement the baseline (C = 0) and FedSGD (C = 1, B = inf) groups of test to get the comparison with current groups. **(11/5 basicly finished, cannot implement baseline groups in my PC. HPC needed.)**
+    - Read two papers about uncertainty estimation. **(11/5 Finished)**
 
 - w10(11/06 - 11/12):
-    - Implement Uncertainty estimation Algorithm, integrate it into existing Fed-Avg framework, and validate it in MNIST dataset.
+    - Implement Uncertainty estimation Algorithm, integrate it into existing Fed-Avg framework, and validate it in MNIST dataset. **(11/5 Finished?)**
     - Apply Fed-Avg to SERS maps(or Raman spectrum). (1/2) 
 
 
