@@ -3,7 +3,9 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
+import numpy as np
 
+# Data Load
 def load_MNIST():
     # Load MNIST and return train and test.
     transform = transforms.Compose([transforms.ToTensor()])
@@ -12,6 +14,7 @@ def load_MNIST():
 
     return MNIST_train, MNIST_test
 
+# Data Assign
 def iid_Assign(dataset, batch_size = 10, n_clients = 100, n_per_client = 600):
     # Default: Partitioned into 100 clients, each receiving 600 examples.
     # Return a list of dataloaders for each client.
@@ -55,6 +58,7 @@ def non_iid_Assign(dataset, batch_size = 10, n_clients = 100, n_per_client = 2):
 def num_params(model):
     return sum(p.numel() for p in model.parameters())
 
+# Visualization
 def pltAcc(Acc, threshold, title):
     rounds = range(1, len(Acc) + 1)
     plt.plot(rounds, Acc, marker='.', linestyle='-', color='blue')
@@ -70,3 +74,22 @@ def pltAcc(Acc, threshold, title):
              arrowprops=dict(facecolor='black', arrowstyle='->'))
 
     plt.show()
+
+def pltUncertainty(A, title):
+    max_values = [np.max(a_i) for a_i in A]
+    min_values = [np.min(a_i) for a_i in A]
+    avg_values = [np.mean(a_i) for a_i in A]
+
+    fig, ax = plt.subplots()
+
+    ax.fill_between(range(len(A)), min_values, max_values, facecolor='red', alpha=0.2)
+
+    ax.plot(range(len(A)), avg_values, color='blue')
+
+    ax.set_xlabel('Rounds')
+    ax.set_ylabel('Uncertainty(Entropy)')
+    ax.set_title(title)
+    ax.legend()
+
+    plt.show()
+    
