@@ -1,19 +1,25 @@
 # Federated Learning Uncertainty Estimation: Investigating Factors for Improved Quality
 
 ## Weekly Meeting Feedback
-### 2023/10/30
+### 2023/11/6
 To-do list:
 - Visualization:
-  - Trending Figures, according to the Appendix of H. Brendan McMahan's paper.
-  - Heatmaps, to show the IID and Non-IID distribution strategy.
-  
-- Dataset 
-Validate the correctness of Fed-Avg and then try to apply to these datasets:
+  - Heatmap: visualize all clients
+  - maybe transpose if it's too tall.
+  - vertical axis: "Clients No."
+  - New Graph: Var(Uncertainty(clients))-rounds, together with acc-rounds. 
+  - (optional)The graph of entrophy-rounds: the vertical axis canbe Confidence Interval, not max-min interval.
+
+- About Entrophy:
+  - entropy = -torch.sum(logits * log_probabilities = torch.log(logits), dim=1)
+  - entrophy should be calculated on test data, not training data.
+  - entrophy should be calculated on full-batch, not the default batch(which is 10 now.)
+  - C doesn't matter. can validate the differences between different **Local_epochs**
+  - implement another uncertainty calculate functions, such as BALD.
+
+- Datasets:
   - Raman spectrum, e.g., the datasets from http://mikkelschmidt.dk/papers/li2022analyst.pdf
   - SERS maps, e.g., the datasets from http://mikkelschmidt.dk/papers/li2023analyst.pdf (funding)
-
-- week plan
-listed as below.
 
 - HPC
   - try some toy projects.
