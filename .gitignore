@@ -1,9 +1,10 @@
-*.txt
+  *.txt
 *.png
 
 **/.ipynb_checkpoints/
 **/__pycache__/
 **/data/
-
+hpc_2nn/*/
+hpc_cnn/*/
 
 /.git/
