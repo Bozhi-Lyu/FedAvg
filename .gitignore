@@ -1,8 +1,7 @@
-*.txt
+  *.txt
 *.png
 
 **/.ipynb_checkpoints/
 **/__pycache__/
-**/data*/
 
 /.git/
